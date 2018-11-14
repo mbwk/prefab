@@ -8,7 +8,7 @@ for dotfile in $DOTFILES; do
 done
 
 mkdir -p ~/.config/
-XDGCONF="i3 i3status mpd mpv nvim sway termite"
+XDGCONF="i3 i3status mpd mpv nvim sway termite user-dirs.dirs"
 for xconf in $XDGCONF; do
     cp -riv ./dotfiles/user/${xconf} ~/.config/
 done

@@ -3,21 +3,14 @@
 set -x
 
 DIRECTORIES="
-Art
-Documents
-Downloads
-Music
-Projects/DIY
-Projects/Libraries
-Projects/OpenSource
-Projects/Personal
-Projects/Ricing
-Videos
-Work
+art
 go
-rice
+programming
+ricing
 scripts
-shots"
+shots
+work
+"
 
 cd ~
 mkdir -p $DIRECTORIES
