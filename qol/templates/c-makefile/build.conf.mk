@@ -1,5 +1,5 @@
 COMMONFLAGS	= -Werror -Wall -pedantic \
-		  -O2 -g
+		  -O2 -g $(DEFS)
 
 CC		= cc
 CSTD		= iso9899:1999

@@ -1,3 +1,4 @@
+DEFS		= -D_POSIX_C_SOURCE=199909L
 LDLIBS		= 
 SRCDIR		= src
 EXE		= a.out
