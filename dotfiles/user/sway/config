@@ -23,9 +23,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
-#bindsym XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ +5%"
-#bindsym XF86AudioLowerVolume exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ -5%"
-#bindsym XF86AudioMute exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec sh -c "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym XF86MonBrightnessUp exec sh -c "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec sh -c "xbacklight -dec 10"
 bindsym XF86KbdBrightnessUp exec sh -c "kb-light.py + 51"
