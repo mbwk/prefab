@@ -2,7 +2,7 @@
 
 set -ex
 
-tpldir="$HOME/.local/share/templates/$1/"
+tpldir="$HOME/.local/share/templates/$1"
 echo $tpldir
 
 if [ -d $tpldir ]; then
