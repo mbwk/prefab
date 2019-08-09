@@ -47,6 +47,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('Shougo/deoplete.nvim')
   "call dein#add('zchee/deoplete-clang')
   call dein#add('JuliaEditorSupport/julia-vim')
+  call dein#add('JuliaEditorSupport/deoplete-julia')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('fatih/vim-go')
 
