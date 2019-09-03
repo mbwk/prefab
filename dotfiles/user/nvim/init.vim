@@ -45,7 +45,7 @@ if dein#load_state('~/.local/share/dein')
   call dein#add('Shougo/denite.nvim')
 
   call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('zchee/deoplete-clang')
+  call dein#add('zchee/deoplete-clang')
   call dein#add('JuliaEditorSupport/julia-vim')
   call dein#add('JuliaEditorSupport/deoplete-julia')
   call dein#add('zchee/deoplete-jedi')
@@ -397,4 +397,7 @@ endif
 let c_syntax_for_h = 1
 
 au BufNewFile,BufRead SConstruct set filetype=python
+
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 
