@@ -1,0 +1,71 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+
+[[plugins]]
+repo = 'JuliaEditorSupport/julia-vim'
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'bling/vim-airline'
+
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
+
+[[plugins]]
+repo = 'tikhomirov/vim-glsl'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'dleonard0/pony-vim-syntax'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+
+[[plugins]]
+repo = 'cloudhead/neovim-fuzzy'
+
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+
+[[plugins]]
+repo = 'sbdchd/neoformat'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+hook_post_update = '''
+if has('win32') || has('win64')
+    call system(
+    \ 'powershell -executionpolicy bypass -File install.ps1')
+else
+    call system('bash install.sh')
+endif
+'''
+
