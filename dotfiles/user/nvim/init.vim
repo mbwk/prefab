@@ -233,11 +233,10 @@ set notimeout ttimeout ttimeoutlen=200
 " Indentation settings according to personal preference.
 
 " Indentation settings for using spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
 set autoindent
 set expandtab
 set shiftwidth=4
-" "set tabstop=4
+set tabstop=4
 set softtabstop=4
 
 " Indentation settings for using hard tabs for indent. Display tabs as

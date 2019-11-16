@@ -69,3 +69,6 @@ else
 endif
 '''
 
+[[plugins]]
+repo = 'baabelfish/nvim-nim'
+
