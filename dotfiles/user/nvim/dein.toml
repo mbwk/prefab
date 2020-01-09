@@ -70,5 +70,5 @@ endif
 '''
 
 [[plugins]]
-repo = 'baabelfish/nvim-nim'
+repo = 'alaviss/nim.nvim'
 
