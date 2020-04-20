@@ -1,12 +1,12 @@
 # i3-gaps
 for_window [class="^.*"] border pixel 3
-gaps inner 15
-gaps outer 15
+gaps inner 8
+gaps outer 4
 smart_gaps on
 
 set $mod Mod4
 
-font pango:monospace 14
+font pango:monospace 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -17,7 +17,7 @@ bindsym $mod+Return exec termite
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#output "*" background /home/karlbirch/rice/fractal-0.png fill
+output "*" background /home/sepples/art/pony/luna-french-girl.jpg fill
 
 # start rofi
 bindsym $mod+d exec rofi -show run

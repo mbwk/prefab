@@ -6,7 +6,7 @@ if [ $# -gt 0 ] && [ $1 == "area" ]; then
     flameshot gui -p ~/shots/
 else
     # scrot ~/shots/%Y-%m-%d-%T-screenshot.png
-    flameshot screen -p ~/shots/
+    flameshot full -p ~/shots/
 fi
 
 

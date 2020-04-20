@@ -1,1 +1,4 @@
 dotfiles/user/gtk-3.0/bookmarks
+dotfiles/user/emacs.d/*
+!dotfiles/user/emacs.d/init.el
+

@@ -11,4 +11,4 @@ The setup scripts here symlink items in this repo to expected locations in
 your home directory. The point of this is to ensure adjustments made over
 the course of normal usage can be tracked and not lost.
 
-
+TODO: investigate using stow to handle symlink farms
