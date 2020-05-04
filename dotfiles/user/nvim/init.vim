@@ -17,70 +17,60 @@ let mapleader = ","
 " have made, as well as sanely reset options when re-sourcing .vimrc
 filetype off                  " required
 
-" dein.vim
-
 let g:python2_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
-
-"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=$HOME/.local/share/dein/repos/github.com/Shougo/dein.vim
+" dein.vim
+" adapted from: https://gist.github.com/yostos/312419b7829ee91610426194272c8f56
+function! s:InitDein()
+  let s:config_dir = $HOME . "/.config/nvim"
+  let s:share_dir = $HOME . "/.local/share"
+  if has("vim_starting")
+    if ! isdirectory(s:share_dir)
+      call system("mkdir -p " . s:share_dir)
+    endif
+  endif
 
-" Required:
-if dein#load_state('~/.local/share/dein')
-  call dein#begin('~/.local/share/dein')
+  " Set dein paths
+  let s:dein_dir = s:share_dir . "/dein"
+  let s:dein_github = s:dein_dir . "/repos/github.com"
+  let s:dein_repo_name = "Shougo/dein.vim"
+  let s:dein_repo_dir = s:dein_github . "/" . s:dein_repo_name
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.local/share/dein/repos/github.com/Shougo/dein.vim')
+  " Check if dein has been installed
+  if !isdirectory(s:dein_repo_dir)
+    echo "dein is not installed, installing now"
+    let s:dein_repo = "https://github.com/" . s:dein_repo_name
+    let s:git_clone_cmd = "git clone " . s:dein_repo . " " . s:dein_repo_dir
+    echo s:git_clone_cmd
+    call system(s:git_clone_cmd)
+  endif
+  let &runtimepath = &runtimepath . "," . s:dein_repo_dir
 
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/denite.nvim')
+  if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-  call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('zchee/deoplete-clang')
-  call dein#add('JuliaEditorSupport/julia-vim')
-  call dein#add('zchee/deoplete-jedi')
-  call dein#add('fatih/vim-go')
+    let s:toml = s:config_dir . "/dein.toml"
+    " let s:lazy_toml = s:config_dir . "/dein_lazy.toml"
+    call dein#load_toml(s:toml, {"lazy": 0})
+    :
+    call dein#end()
+    call dein#save_state()
+  endif
 
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('bling/vim-airline')
-  call dein#add('flazz/vim-colorschemes')
-  call dein#add('tikhomirov/vim-glsl')
-  call dein#add('leafgarland/typescript-vim')
-  call dein#add('dleonard0/pony-vim-syntax')
-  call dein#add('dart-lang/dart-vim-plugin')
-  call dein#add('kchmck/vim-coffee-script')
-  call dein#add('cloudhead/neovim-fuzzy')
-  call dein#add('udalov/kotlin-vim')
-  call dein#add('sbdchd/neoformat')
-  "call dein#add('neomake/neomake')
-  "call dein#add('artur-shaik/vim-javacomplete2')
+  if dein#check_install()
+    call dein#install()
+  endif
 
+  filetype indent plugin on
+  syntax on
+endfunction
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
-
+call s:InitDein()
 
 set timeout
 set timeoutlen=750
@@ -243,11 +233,10 @@ set notimeout ttimeout ttimeoutlen=200
 " Indentation settings according to personal preference.
 
 " Indentation settings for using spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
 set autoindent
 set expandtab
 set shiftwidth=4
-" "set tabstop=4
+set tabstop=4
 set softtabstop=4
 
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -397,3 +386,35 @@ let c_syntax_for_h = 1
 
 au BufNewFile,BufRead SConstruct set filetype=python
 
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
+
+set nofoldenable
+
+" rainbow parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

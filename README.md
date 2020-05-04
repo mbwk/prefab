@@ -1,21 +1,14 @@
 # prefab
 
-A set of scripts and configurations to cut down immensely on the time spent
-setting my Linux systems up to a nice state.
+Keep track of configuration changes to the individual user environment, allow
+for effortless migration of my preferred configuration to a newly installed
+system.
 
 
-## dotfiles
+## Symlinking
 
-Configuration: dotfiles, rcfiles, conf files, and other such things.
+The setup scripts here symlink items in this repo to expected locations in
+your home directory. The point of this is to ensure adjustments made over
+the course of normal usage can be tracked and not lost.
 
-
-## scripts
-
-QoL scripts, sometimes required by certain configuration files.
-
-
-## setup
-
-Installation scripts focussed on installing needed items and copying over
-aforementioned configurations and QoL scripts.
-
+TODO: investigate using stow to handle symlink farms
